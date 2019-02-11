@@ -2,8 +2,14 @@ version: "3.4"
 services:
   web:
     build: .
+    networks:
+      - generated_default
     env_file:
     - .env
     ports:
     - "${PORT}:${PORT}"
     container_name: nanotip
+networks:
+  generated_default:
+    external:
+      name: generated_default
