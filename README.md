@@ -58,6 +58,29 @@ $ nanotipd --help
     $ nanotipd -c http://localhost:9112 -t chargeSecretToken
 ```
 
+
+## Running with Docker
+
+Nantotip includes a Dockerfile to allow for fast setup using a docker container based on node:carbon. To run from the container with port 9116 exposed, first setup [Lightning Charge](https://github.com/ElementsProject/lightning-charge), then build the image with:
+
+```bash
+$ docker build -t elements_project/nanotip .
+```
+
+and then run with:
+
+```bash
+$ docker run -p 9116:9116 -e CHARGE_URL=http://[charge-url]/ -e CHARGE_TOKEN=[access-token] elements_project/nanopos
+```
+
+or start with docker-compose
+
+```bash
+$ docker-compose up --build -d
+```
+
+That's it! The web server should now be running on port 9116 and ready to accept payments.
+
 ## License
 
 MIT

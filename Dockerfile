@@ -1,6 +1,6 @@
 FROM node:carbon
-WORKDIR /opt/nanotip
+WORKDIR /user/src/app
 COPY . .
 RUN npm install
 EXPOSE ${PORT}
-CMD node ./nanotip.js
+CMD node ./nanotip
